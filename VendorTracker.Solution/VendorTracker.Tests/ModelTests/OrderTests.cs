@@ -74,6 +74,19 @@ namespace VendorTrackerTests //Change to match Title
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(totalO, result);
     }
+
+    [TestMethod]
+    public void GetId_IdentifyInstancesViaId_int()
+    {
+      string title = "Chocolate Chip Cookies";
+      int quantity = 24;
+      int price = 10;
+      string date = "June 10th";
+      Order newOrder = new Order(title, quantity, price, date);
+
+      int result = newOrder.Id;
+      Assert.AreEqual(1, result);
+    }
   }
 }
 
