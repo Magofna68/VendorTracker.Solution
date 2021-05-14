@@ -32,5 +32,12 @@ namespace VendorTracker.Controllers
       List<Order> ordersByVendor = Order.GetAllOrders(vendor);
       return View(ordersByVendor);
     }
+
+    // [HttpGet("/vendors/{Id}/orders")]
+    // public ActionResult Show(string vendor)
+    // {
+    //   List<Order> ordersByVendor = Order.GetAllOrders(vendor);
+    //   return View(ordersByVendor);
+    // }
   }
 }

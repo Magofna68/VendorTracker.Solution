@@ -1,4 +1,21 @@
 @using VendorTracker.Models;
 
-<h1>Vendor</h1>
-<h2>@Model.Vendor</h2>
+@* <h1>Order History From: [@Vendor.Name]</h1> *@
+<ul>
+  @foreach (Order order in Model)
+  {
+    <li>@order.Title</li>
+    @* <li>@order.Title <a href="/order/delete/@record.Id">[DELETE]</a></li> *@
+  }
+</ul>
+<a href="/vendors/{Id}/order/new">Add a new order</a>
+<a href="/vendors/">Back to Vendors</a>
+@* <h2>Would you like to book another order from [@Vendor.Name] ?</h2> *@
+
+@* <ul>
+  @foreach (Vendor Vendor in Model)
+  {
+  <li><a href='/vendors/@Vendor.Id/orders'>@Vendor.Name</a></li>
+  //Targeting the Vendor obj --> pull vendor name from object
+  }
+  </ul> *@
