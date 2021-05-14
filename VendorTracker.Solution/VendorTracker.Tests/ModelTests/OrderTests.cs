@@ -7,12 +7,12 @@ using System;
 namespace VendorTrackerTests //Change to match Title
 {
   [TestClass]
-  public class OrderTests //: IDisposable
+  public class OrderTests : IDisposable
   {
-    // public void Dispose()
-    // {
-    //   record.ClearAll();
-    // }
+    public void Dispose()
+    {
+      Order.ClearAll();
+    }
 
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
@@ -45,6 +45,14 @@ namespace VendorTrackerTests //Change to match Title
       int newPrice = price - 4;
       newOrder.Price = newPrice;
       Assert.AreEqual(6, newOrder.Price);
+    }
+
+    [TestMethod]
+    public void GetAll_Returns_EmptyList_OrderList()
+    {
+      List<Order> newList = new List<Order> { };
+      List<Order> result = Order.GetAll();
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }

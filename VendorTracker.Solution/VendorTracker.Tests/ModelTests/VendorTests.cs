@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VendorTracker.Models;
-using System;
 using System.Collections.Generic;
+using System;
 
 namespace VendorTrackerTests //Change to match Title
 {
