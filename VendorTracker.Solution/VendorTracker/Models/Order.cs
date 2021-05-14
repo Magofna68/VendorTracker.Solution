@@ -44,10 +44,10 @@ namespace VendorTracker.Models
       List<Order> allOrders = new List<Order> { };
       foreach (Order order in _orderList)
       {
-        if (Order.Origin == oOrigin)
-        {
-          allOrders.Add(Order);
-        }
+        // if (Order.Origin == oOrigin)
+
+        allOrders.Add(order);
+
       }
       return allOrders;
     }
