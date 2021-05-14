@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace VendorTracker.Tests //Change to match Title
 {
   [TestClass]
-  public class OrderTests : IDisposable
+  public class VendorTests : IDisposable
   {
     public void Dispose()
     {
@@ -85,6 +85,17 @@ namespace VendorTracker.Tests //Change to match Title
       Vendor result = Vendor.Find(2);
 
       Assert.AreEqual(newVendor2, result);
+    }
+
+    [TestMethod]
+    public void GetId_ReturnsVendorId_Int()
+    {
+    string vName = "Pierre";
+    string vDes = "Baker";
+    Vendor newVendor = new Vendor(vName, vDes);
+
+    int result = newVendor.Id;
+    Assert.AreEqual(1, result);
     }
   }
 }

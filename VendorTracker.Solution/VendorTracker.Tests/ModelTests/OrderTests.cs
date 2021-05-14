@@ -23,3 +23,6 @@
 // {
 //   // any necessary logic to prep for test; instantiating new classes, etc.
 //   Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
+
+    // [TestMethod]
+    // public void GetAllByOrder
