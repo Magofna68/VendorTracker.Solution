@@ -32,6 +32,20 @@ namespace VendorTrackerTests //Change to match Title
 
       Assert.AreEqual(date, newOrder.Date);
     }
+
+    [TestMethod]
+    public void OrderConstructor_SetProperties_Price()
+    {
+      string title = "Chocolate Chip Cookies";
+      int quantity = 24;
+      int price = 10;
+      string date = "June 10th";
+      Order newOrder = new Order(title, quantity, price, date);
+
+      int newPrice = price - 4;
+      newOrder.Price = newPrice;
+      Assert.AreEqual(6, newOrder.Price);
+    }
   }
 }
 
