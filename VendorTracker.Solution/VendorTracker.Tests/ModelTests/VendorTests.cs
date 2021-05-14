@@ -29,5 +29,21 @@ namespace VendorTracker.Tests //Change to match Title
       string result = newVendor.Description;
       Assert.AreEqual(description, result);
     }
+
+    [TestMethod]
+    public void SetDescription_UpdatesDescription_String()
+    {
+      //Arrange
+      string description = "Pastry Baker";
+      Vendor newVendor = new Vendor("Pierre", description);
+
+      //Act
+      string updatedDescription = "Pastry Chef";
+      newVendor.Description = updatedDescription;
+      string result = newVendor.Description;
+
+      //Assert
+      Assert.AreEqual(updatedDescription, result);
+    }
   }
 }
