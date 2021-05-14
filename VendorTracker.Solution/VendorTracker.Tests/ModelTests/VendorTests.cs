@@ -70,5 +70,21 @@ namespace VendorTracker.Tests //Change to match Title
 
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void Find_ReturnsAccurateVendor_Vendor()
+    {
+      string vName = "Pierre";
+      string vDes = "baker";
+      string vName2 = "Margret";
+      string vDes2 = "chef";
+
+      Vendor newVendor = new Vendor(vName, vDes);
+      Vendor newVendor2 = new Vendor(vName2, vDes2);
+
+      Vendor result = Vendor.Find(2);
+
+      Assert.AreEqual(newVendor2, result);
+    }
   }
 }
