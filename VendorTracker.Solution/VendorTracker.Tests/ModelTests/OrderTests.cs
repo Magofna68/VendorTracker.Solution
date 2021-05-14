@@ -1,0 +1,25 @@
+// using Microsoft.VisualStudio.TestTools.UnitTesting;
+// using VendorTracker;
+
+// namespace VendorTracker.Tests //Change to match Title
+// {
+//   [TestClass]
+//   public class OrderTests : IDisposable
+//   {
+//     // public void Dispose()
+//     // {
+//     //   record.ClearAll();
+//     // }
+
+//     [TestMethod]
+//     public void OrderConstructor_CreatesInstanceOfOrder_Order()
+//     {
+//       Order newOrder = new Order("Pierre");
+//     }
+//   }
+// }
+// // [TestMethod]
+// public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
+// {
+//   // any necessary logic to prep for test; instantiating new classes, etc.
+//   Assert.AreEqual(EXPECTED RESULT, CODE TO TEST);
