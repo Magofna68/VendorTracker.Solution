@@ -3,7 +3,7 @@ using VendorTracker.Models;
 using System;
 using System.Collections.Generic;
 
-namespace VendorTracker.Tests //Change to match Title
+namespace VendorTrackerTests //Change to match Title
 {
   [TestClass]
   public class VendorTests : IDisposable
@@ -90,12 +90,18 @@ namespace VendorTracker.Tests //Change to match Title
     [TestMethod]
     public void GetId_ReturnsVendorId_Int()
     {
-    string vName = "Pierre";
-    string vDes = "Baker";
-    Vendor newVendor = new Vendor(vName, vDes);
+      string vName = "Pierre";
+      string vDes = "Baker";
+      Vendor newVendor = new Vendor(vName, vDes);
 
-    int result = newVendor.Id;
-    Assert.AreEqual(1, result);
+      int result = newVendor.Id;
+      Assert.AreEqual(1, result);
     }
+
+    // [TestMethod]
+    // public void AddOrder_AssociatesOrderwithVendor_OrderList()
+    // {
+
+    // }
   }
 }
