@@ -5,6 +5,7 @@ namespace VendorTracker.Models
   public class Order
   {
     public string Title { get; set; }
+    public string Origin { get; set; }
     public int Quantity { get; set; }
     public int Price { get; set; }
     public string Date { get; set; }
@@ -17,9 +18,10 @@ namespace VendorTracker.Models
 
     private static List<Order> _orderList = new List<Order> { };
 
-    public Order(string oTitle, int oQuantity, int oPrice, string oDate)
+    public Order(string oTitle, string oOrigin, int oQuantity, int oPrice, string oDate)
     {
       Title = oTitle;
+      Origin = oOrigin;
       Quantity = oQuantity;
       Price = oPrice;
       Date = oDate;
@@ -37,19 +39,17 @@ namespace VendorTracker.Models
       return _orderList[searchId - 1];
     }
 
-    // public static List<string> GetAllOrders(string vendor)
-    // {
-    //       // List<string> allArtists = new List<string> { };
-    // foreach (Record record in __recordsList)
-    // {
-    //   string nameOfArtist = record.Artist;
-    //   if (!allArtists.Contains(nameOfArtist))
-    //   {
-    //     allArtists.Add(nameOfArtist);
-    //   }
-    // }
-    // return allArtists;
-    // return _orderList;
-    // }
+    public static List<Order> GetAllOrders(string vendor)
+    {
+      List<Order> allOrders = new List<Order> { };
+      foreach (Order order in _orderList)
+      {
+        if (Order.Origin == oOrigin)
+        {
+          allOrders.Add(Order);
+        }
+      }
+      return allOrders;
+    }
   }
 }

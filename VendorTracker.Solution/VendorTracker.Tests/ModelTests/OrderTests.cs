@@ -25,10 +25,11 @@ namespace VendorTrackerTests //Change to match Title
     public void OrderConstructor_CreatesInstanceOfAllProperties_Order()
     {
       string title = "Chocolate Chip Cookies";
+      string origin = "Pierre's";
       int quantity = 24;
       int price = 10;
       string date = "June 10th";
-      Order newOrder = new Order(title, quantity, price, date);
+      Order newOrder = new Order(title, origin, quantity, price, date);
 
       Assert.AreEqual(date, newOrder.Date);
     }
@@ -37,10 +38,11 @@ namespace VendorTrackerTests //Change to match Title
     public void OrderConstructor_SetProperties_Price()
     {
       string title = "Chocolate Chip Cookies";
+      string origin = "Pierre's";
       int quantity = 24;
       int price = 10;
       string date = "June 10th";
-      Order newOrder = new Order(title, quantity, price, date);
+      Order newOrder = new Order(title, origin, quantity, price, date);
 
       int newPrice = price - 4;
       newOrder.Price = newPrice;
@@ -60,6 +62,8 @@ namespace VendorTrackerTests //Change to match Title
     {
       string title = "Chocolate Chip Cookies";
       string title2 = "Chocolate Cookies";
+      string origin = "Pierre's";
+      string origin2 = "Dierre's";
       int quantity = 24;
       int quantity2 = 14;
       int price = 10;
@@ -67,8 +71,8 @@ namespace VendorTrackerTests //Change to match Title
       string date = "June 10th";
       string date2 = "June 11th";
 
-      Order newOrder = new Order(title, quantity, price, date);
-      Order newOrder2 = new Order(title2, quantity2, price2, date2);
+      Order newOrder = new Order(title, origin, quantity, price, date);
+      Order newOrder2 = new Order(title2, origin2, quantity2, price2, date2);
       List<Order> totalO = new List<Order> { newOrder, newOrder2 };
 
       List<Order> result = Order.GetAll();
@@ -79,10 +83,11 @@ namespace VendorTrackerTests //Change to match Title
     public void GetId_IdentifyInstancesViaId_int()
     {
       string title = "Chocolate Chip Cookies";
+      string origin = "Pierre's";
       int quantity = 24;
       int price = 10;
       string date = "June 10th";
-      Order newOrder = new Order(title, quantity, price, date);
+      Order newOrder = new Order(title, origin, quantity, price, date);
 
       int result = newOrder.Id;
       Assert.AreEqual(1, result);
@@ -93,6 +98,8 @@ namespace VendorTrackerTests //Change to match Title
     {
       string title = "Chocolate Chip Cookies";
       string title2 = "Chocolate Cookies";
+      string origin = "Pierre's";
+      string origin2 = "Dierre's";
       int quantity = 24;
       int quantity2 = 14;
       int price = 10;
@@ -100,8 +107,8 @@ namespace VendorTrackerTests //Change to match Title
       string date = "June 10th";
       string date2 = "June 11th";
 
-      Order newOrder = new Order(title, quantity, price, date);
-      Order newOrder2 = new Order(title2, quantity2, price2, date2);
+      Order newOrder = new Order(title, origin, quantity, price, date);
+      Order newOrder2 = new Order(title2, origin2, quantity2, price2, date2);
       Order result = Order.Find(2);
 
       Assert.AreEqual(newOrder2, result);

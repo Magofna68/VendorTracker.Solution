@@ -26,11 +26,11 @@ namespace VendorTracker.Controllers
       return RedirectToAction("Index");
     }
 
-    // [HttpGet("/vendors/{}")]
-    // public ActionResult Show(string vendor)
-    // {
-    //   List<Order> ordersByVendor = Order.GetAllOrders(vendor);
-    //   return View(ordersByVendor);
-    // }
+    [HttpGet("/vendors/{Id}/orders")]
+    public ActionResult Show(string vendor)
+    {
+      List<Order> ordersByVendor = Order.GetAllOrders(vendor);
+      return View(ordersByVendor);
+    }
   }
 }
