@@ -8,9 +8,14 @@ namespace VendorTracker.Models
     public int Quantity { get; set; }
     public int Price { get; set; }
     public string Date { get; set; }
-    // public int Id { get; }
+    public int Id { get; }
 
-    private static List<Order> _instances = new List<Order> { };
+    public static void ClearAll()
+    {
+      _orderList.Clear();
+    }
+
+    private static List<Order> _orderList = new List<Order> { };
 
     public Order(string oTitle, int oQuantity, int oPrice, string oDate)
     {
@@ -18,8 +23,33 @@ namespace VendorTracker.Models
       Quantity = oQuantity;
       Price = oPrice;
       Date = oDate;
-      // _instances.Add(this);
-      // Id = _instances.Count;
+      _orderList.Add(this);
+      Id = _orderList.Count;
     }
+
+    public static List<Order> GetAll()
+    {
+      return _orderList;
+    }
+
+    public static Order Find(int searchId)
+    {
+      return _orderList[searchId - 1];
+    }
+
+    // public static List<string> GetAllOrders(string vendor)
+    // {
+    //       // List<string> allArtists = new List<string> { };
+    // foreach (Record record in __recordsList)
+    // {
+    //   string nameOfArtist = record.Artist;
+    //   if (!allArtists.Contains(nameOfArtist))
+    //   {
+    //     allArtists.Add(nameOfArtist);
+    //   }
+    // }
+    // return allArtists;
+    // return _orderList;
+    // }
   }
 }
