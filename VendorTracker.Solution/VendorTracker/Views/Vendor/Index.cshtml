@@ -6,10 +6,11 @@
 {
   <h3>No Vendors have been added. <br><br> Add Vendors to view details.</h3>
 }
-
-@foreach (Vendor Vendor in Model)
-{
-  <h3><a href='/vendors/@Vendor'>@Vendor</a></h3>
-  //Targeting the Vendor obj --> pull vendor name from object
-}
+<ul>
+  @foreach (Vendor Vendor in Model)
+  {
+    <li><a href='/vendors/@Vendor.Id'>@Vendor.Name</a></li>
+    //Targeting the Vendor obj --> pull vendor name from object
+  }
+</ul>
 <a href='/vendors/new'>Add a new Vendor</a>

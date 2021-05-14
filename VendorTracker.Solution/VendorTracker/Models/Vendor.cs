@@ -5,13 +5,13 @@ namespace VendorTracker.Models
 {
   public class Vendor
   {
-    public string Vendors { get; set; }
+    public string Name { get; set; }
     public string Description { get; set; }
     public int Id { get; }
     public static List<Vendor> _vendorList = new List<Vendor> { };
     public Vendor(string vName, string vDescription)
     {
-      Vendors = vName;
+      Name = vName;
       Description = vDescription;
       _vendorList.Add(this);
       Id = _vendorList.Count;
