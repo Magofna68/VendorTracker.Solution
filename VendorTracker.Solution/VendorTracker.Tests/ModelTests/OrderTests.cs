@@ -87,6 +87,25 @@ namespace VendorTrackerTests //Change to match Title
       int result = newOrder.Id;
       Assert.AreEqual(1, result);
     }
+
+    [TestMethod]
+    public void Find_ReturnsAccurateOrder_Order()
+    {
+      string title = "Chocolate Chip Cookies";
+      string title2 = "Chocolate Cookies";
+      int quantity = 24;
+      int quantity2 = 14;
+      int price = 10;
+      int price2 = 13;
+      string date = "June 10th";
+      string date2 = "June 11th";
+
+      Order newOrder = new Order(title, quantity, price, date);
+      Order newOrder2 = new Order(title2, quantity2, price2, date2);
+      Order result = Order.Find(2);
+
+      Assert.AreEqual(newOrder2, result);
+    }
   }
 }
 
