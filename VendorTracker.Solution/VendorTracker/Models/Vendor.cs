@@ -5,12 +5,12 @@ namespace VendorTracker.Models
   public class Vendor
   {
     public string Vendors { get; set; }
-    // public string Description { get; set; }
+    public string Description { get; set; }
     public static List<Vendor> _vendorList = new List<Vendor> { };
-    public Vendor(string vendorName)
+    public Vendor(string vName, string vDescription)
     {
-      Vendors = vendorName;
-      // Description = vDescription;
+      Vendors = vName;
+      Description = vDescription;
       // _vendorList.Add(this);
     }
 
