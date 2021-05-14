@@ -48,11 +48,31 @@ namespace VendorTrackerTests //Change to match Title
     }
 
     [TestMethod]
-    public void GetAll_Returns_EmptyList_OrderList()
+    public void GetAll_ReturnsEmptyList_OrderList()
     {
       List<Order> newList = new List<Order> { };
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsOrders_OrderList()
+    {
+      string title = "Chocolate Chip Cookies";
+      string title2 = "Chocolate Cookies";
+      int quantity = 24;
+      int quantity2 = 14;
+      int price = 10;
+      int price2 = 13;
+      string date = "June 10th";
+      string date2 = "June 11th";
+
+      Order newOrder = new Order(title, quantity, price, date);
+      Order newOrder2 = new Order(title2, quantity2, price2, date2);
+      List<Order> totalO = new List<Order> { newOrder, newOrder2 };
+
+      List<Order> result = Order.GetAll();
+      CollectionAssert.AreEqual(totalO, result);
     }
   }
 }
