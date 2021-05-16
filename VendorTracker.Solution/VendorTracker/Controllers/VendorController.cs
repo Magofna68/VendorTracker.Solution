@@ -26,7 +26,7 @@ namespace VendorTracker.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/vendors/{Id}/orders")]
+    [HttpGet("/vendors/{Id}")]
     public ActionResult Show(string vendor)
     {
       List<Order> ordersByVendor = Order.GetAllOrders(vendor);
@@ -41,3 +41,23 @@ namespace VendorTracker.Controllers
     // }
   }
 }
+
+// [HttpGet("/vendors/{Id}/orders")]
+// public ActionResult Index()
+// {
+//   List<Order> ordersByVendor = Order.GetAllOrders(Vendor);
+//   return View(ordersByVendor);
+// }
+// [HttpGet("/vendors/{Id}/orders")]
+// public ActionResult Create(string vendor)
+// {
+//   List<Order> ordersByVendor = Order.GetAllOrders(vendor);
+//   return View(ordersByVendor);
+// }
+
+// [HttpPost("/vendors/{Id}/orders/new")]
+// public ActionResult New(string vendor)
+// {
+//   List<Order> ordersByVendor = Order.GetAllOrders(vendor);
+//   return View(ordersByVendor);
+// }
