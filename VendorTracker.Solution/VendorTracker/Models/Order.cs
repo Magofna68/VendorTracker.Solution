@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using VendorTracker.Models;
 
 namespace VendorTracker.Models
 {
@@ -7,26 +8,24 @@ namespace VendorTracker.Models
     public string Title { get; set; }
     public string Origin { get; set; }
     public int Quantity { get; set; }
-    public int Price { get; set; }
+    // public int Price { get; set; }
     public string Date { get; set; }
     public int Id { get; }
-
-    public static void ClearAll()
-    {
-      _orderList.Clear();
-    }
-
     private static List<Order> _orderList = new List<Order> { };
+    // private static List<Order> allOrders = new List<Order> { };
 
-    public Order(string oTitle, string oOrigin, int oQuantity, int oPrice, string oDate)
+    public Order(string oTitle, string oOrigin, int oQuantity, string oDate)
     {
       Title = oTitle;
       Origin = oOrigin;
       Quantity = oQuantity;
-      Price = oPrice;
       Date = oDate;
       _orderList.Add(this);
       Id = _orderList.Count;
+    }
+    public static void ClearAll()
+    {
+      _orderList.Clear();
     }
 
     public static List<Order> GetAll()
@@ -37,19 +36,6 @@ namespace VendorTracker.Models
     public static Order Find(int searchId)
     {
       return _orderList[searchId - 1];
-    }
-
-    public static List<Order> GetAllOrders(string vendor)
-    {
-      List<Order> allOrders = new List<Order> { };
-      foreach (Order order in _orderList)
-      {
-        // if (Order.Origin == oOrigin)
-
-        allOrders.Add(order);
-
-      }
-      return allOrders;
     }
   }
 }

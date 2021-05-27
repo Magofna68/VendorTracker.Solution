@@ -22,42 +22,32 @@ namespace VendorTracker.Controllers
     [HttpPost("/vendors")]
     public ActionResult Create(string vName, string vDescription)
     {
-      Vendor firstVendor = new Vendor(vName, vDescription);
+      Vendor newVendor = new Vendor(vName, vDescription);
       return RedirectToAction("Index");
     }
 
     [HttpGet("/vendors/{Id}")]
-    public ActionResult Show(string vendor)
+    public ActionResult Show(int id)
     {
-      List<Order> ordersByVendor = Order.GetAllOrders(vendor);
-      return View(ordersByVendor);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor selectedVendor = Vendor.Find(id);
+      List<Order> ordersByVendor = selectedVendor.Orders;
+      model.Add("vendor", selectedVendor);
+      model.Add("orders", ordersByVendor);
+      return View(model);
     }
 
-    // [HttpGet("/vendors/{Id}/orders/new")]
-    // public ActionResult Show(string vendor)
-    // {
-    //   List<Order> ordersByVendor = Order.GetAllOrders(vendor);
-    //   return View(ordersByVendor);
-    // }
+    [HttpGet("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string oTitle, string oOrigin, string oDate, int oQuantity)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(oTitle, oOrigin, oQuantity, oDate);
+      foundVendor.AddOrder(newOrder);
+      List<Order> ordersByVendor = foundVendor.Orders;
+      model.Add("orders", ordersByVendor);
+      model.Add("vendor", foundVendor);
+      return View("Show", model);
+    }
   }
 }
-
-// [HttpGet("/vendors/{Id}/orders")]
-// public ActionResult Index()
-// {
-//   List<Order> ordersByVendor = Order.GetAllOrders(Vendor);
-//   return View(ordersByVendor);
-// }
-// [HttpGet("/vendors/{Id}/orders")]
-// public ActionResult Create(string vendor)
-// {
-//   List<Order> ordersByVendor = Order.GetAllOrders(vendor);
-//   return View(ordersByVendor);
-// }
-
-// [HttpPost("/vendors/{Id}/orders/new")]
-// public ActionResult New(string vendor)
-// {
-//   List<Order> ordersByVendor = Order.GetAllOrders(vendor);
-//   return View(ordersByVendor);
-// }

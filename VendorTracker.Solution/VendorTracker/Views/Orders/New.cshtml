@@ -1,9 +1,12 @@
-@using VendorTracker.Models;
+@{
+  Layout = "_Layout";
+}
 
+<h3>Add a new Order to @Model.Name</h3>
 
-<h3>Add a new Order:</h3>
+<form action="/vendors/@Model.Id/orders"" method=" post">
 
-<form action="/vendors/{Id}/orders"" method=" post">
+  <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
 
   <label for="oTitle">What would you like to order?</label> <br><br>
   <input id="oTitle" name="oTitle" type="text"> <br><br>
@@ -17,18 +20,5 @@
   <label for="oDate">When would you like your order fulfilled by?</label><br><br>
   <input id="oDate" name="oDate" type="text"> <br><br>
 
-  @* <label for="contactInfo">Best Form of Contact:</label><br><br>
-    <input id="contactInfo" name="contactInfo" type="text"> <br><br> *@
-  <button type="submit">Submit</button>
+  <button type="submit">Add Order</button>
 </form>
-<h1>Order History:</h1>
-
-<ul>
-  @foreach (Order order in Model)
-  {
-  <li>@order.Title</li>
-  @* <li>@order.Title <a href="/order/delete/@record.Id">[DELETE]</a></li> *@
-  }
-</ul>
-<a href="/vendors/{Id}/order/new">Add a new order</a>
-<a href="/vendors/">Back to Vendors</a>

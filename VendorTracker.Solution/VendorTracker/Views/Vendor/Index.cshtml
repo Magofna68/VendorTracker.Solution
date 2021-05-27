@@ -1,3 +1,8 @@
+@(
+Layout = "_Layout";
+)
+
+
 @using VendorTracker.Models;
 
 <h1>Vendors:</h1>
@@ -6,11 +11,11 @@
 {
   <h3>No Vendors have been added. <br><br> Add Vendors to view details.</h3>
 }
-<ul>
-  @foreach (Vendor Vendor in Model)
-  {
-    <li><a href='/vendors/@Vendor.Id/'>@Vendor.Name</a></li>
-    //Targeting the Vendor obj --> pull vendor name from object
-  }
-</ul>
+@foreach (Vendor vendor in Model)
+
+{
+  <h3>><a href='/vendors/@vendor.Id'>@vendor.Name</a></h3>
+}
+
 <a href='/vendors/new'>Add a new Vendor</a>
+<p><a href='/'>Back Home</a></p>

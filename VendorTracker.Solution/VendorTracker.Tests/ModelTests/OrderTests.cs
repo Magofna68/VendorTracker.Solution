@@ -29,7 +29,7 @@ namespace VendorTrackerTests //Change to match Title
       int quantity = 24;
       int price = 10;
       string date = "June 10th";
-      Order newOrder = new Order(title, origin, quantity, price, date);
+      Order newOrder = new Order(title, origin, quantity, date);
 
       Assert.AreEqual(date, newOrder.Date);
     }
@@ -42,7 +42,7 @@ namespace VendorTrackerTests //Change to match Title
       int quantity = 24;
       int price = 10;
       string date = "June 10th";
-      Order newOrder = new Order(title, origin, quantity, price, date);
+      Order newOrder = new Order(title, origin, quantity, date);
 
       int newPrice = price - 4;
       newOrder.Price = newPrice;
@@ -115,7 +115,3 @@ namespace VendorTrackerTests //Change to match Title
     }
   }
 }
-
-
-// [TestMethod]
-// public void GetAllByOrder
