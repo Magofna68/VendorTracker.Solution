@@ -4,10 +4,10 @@
 
 <h1>Order Details: </h1>
 
-<h2>@Model["order"].Title</h2>
-<p>@Model["order"].Origin</p>
-<p>@Model["order"].Quantity</p>
-<p>@Model["order"].Date</p>
+<h2>Order For: @Model["order"].Title</h2>
+<h4>From:<br> @Model["order"].Origin</h4>
+<h4>Order Quantity:<br> @Model["order"].Quantity</h4>
+<h4>Pick-Up Date:<br> @Model["order"].Date</h4>
 <h3>Vendor: @Model["vendor"].Name</h3>
 
 <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
