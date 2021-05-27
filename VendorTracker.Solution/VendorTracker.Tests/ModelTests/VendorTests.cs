@@ -97,11 +97,5 @@ namespace VendorTrackerTests //Change to match Title
       int result = newVendor.Id;
       Assert.AreEqual(1, result);
     }
-
-    // [TestMethod]
-    // public void AddOrder_AssociatesOrderwithVendor_OrderList()
-    // {
-
-    // }
   }
 }

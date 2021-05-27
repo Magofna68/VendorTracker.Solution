@@ -1,12 +1,10 @@
 # Vendor Tracker Solution
 
-#### _Brief Description_
-
 #### By _**Brandon Magofna**_
 
 ## Description
 
-_App will ..._
+_This is my independent project for week 9 at Epicodus. This application will alow the user to add vendors to a list, and orders to each vendor. Users are able to navigate the application and add/view all of the inputs they desire._
 
 ### Software Requirements
 
@@ -39,6 +37,7 @@ _Please reach out through my GitHub account._
 - C#
 - Razor
 - git
+- .Net
 
 
 
